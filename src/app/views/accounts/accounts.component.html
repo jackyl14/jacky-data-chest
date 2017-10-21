@@ -1,1 +1,14 @@
 <h1>Accounts</h1>
+<div class="account-container">
+  <div *ngFor="let account of accounts">
+    <div class="account-content" (click)="onAccountClick(account.id)">
+      <div class="account-content-show">
+        <div class="account-main-text">{{account.address}}</div>
+        <div class="account-secondary-text">
+          {{account.city}}, {{account.state}} {{account.zipcode}}
+        </div>
+      </div>
+      <div class="account-content-hover">{{account.id}}</div>
+    </div>
+  </div>
+</div>

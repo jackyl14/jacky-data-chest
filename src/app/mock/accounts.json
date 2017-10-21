@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "user_id": 1,
+    "address": "1234 Fake Street",
+    "city": "Philadelphia",
+    "state": "PA",
+    "zipcode": "19145"
+  },
+  {
+    "id": 2,
+    "user_id": 1,
+    "address": "1235 Fake Street",
+    "city": "Philadelphia",
+    "state": "PA",
+    "zipcode": "19145"
+  }
+]

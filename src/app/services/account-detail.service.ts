@@ -7,7 +7,6 @@ import { EnergyDailyList, EnergySummary } from '../types';
 
 @Injectable()
 export class AccountDetailService {
-
   constructor(private HttpClient: HttpClient) { }
 
   public getSummary(accountId: number): Observable<EnergySummary> {

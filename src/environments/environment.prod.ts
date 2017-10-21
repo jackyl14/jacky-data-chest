@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl: 'https://stg-garcon.herokuapp.com',
+  apiPath: '/api/1'
 };

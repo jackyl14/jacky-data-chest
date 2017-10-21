@@ -16,7 +16,7 @@ export class AccountsComponent {
 
   constructor(
     private AccountService: AccountService,
-    private Routes: Router
+    private Router: Router
   ) {
     this.accounts = null;
   }
@@ -30,5 +30,6 @@ export class AccountsComponent {
 
   public onAccountClick(accountId: number) {
     console.log(`onAccountClick: ${accountId}`);
+    this.Router.navigate(['/accounts/', accountId]);
   }
 }

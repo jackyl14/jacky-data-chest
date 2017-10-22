@@ -10,11 +10,14 @@ import {
   AccountDetailsComponent
 } from './views';
 
+import { KeysPipe } from './pipes';
+
 @NgModule({
   declarations: [
     AccountsComponent,
     AppComponent,
-    AccountDetailsComponent
+    AccountDetailsComponent,
+    KeysPipe
   ],
   imports: [
     AppRoutingModule,

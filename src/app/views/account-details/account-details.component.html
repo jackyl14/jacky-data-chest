@@ -1,1 +1,35 @@
 <h1>Account Details</h1>
+
+
+<div class="account-details-container">
+  <div class="account-details-heading">Today January 1, 2017</div>
+  <div class="account-details-content">
+    <div class="summary-content" *ngIf="summary">
+      <div class="score-content">
+        <span class="summary-score">{{summary.score}}</span>
+        <span class="avg-daily-energy-usg">
+          {{summary.average_daily_energy_usage}}
+        </span>
+        <span class="avg-daily-temp">
+          {{summary.average_daily_temp}}
+        </span>
+      </div>
+      <div class="score-text">{{summary.score_text}}</div>
+    </div>
+    <div class="daily-usage-previous-content">
+      <div class="daily-usage-heading"></div>
+      <div class="daily-usage-content" *ngFor="let daily of dailies">
+        <div *ngFor="let key of daily | keys">
+          <span>{{key}}</span>
+          <span>{{daily[key]}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Today January 1, 2017
+SCORE (BIG)  [daily avg energy usg]  [avg daily temp]
+
+Previous Month (Chart)
+12/31 12/30 12/29 ... -->

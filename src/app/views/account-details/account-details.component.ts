@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { AccountDetailService } from '../../services/account-detail.service';
-import { EnergyDailyList, EnergySummary } from '../../types';
+import { EnergyDaily, EnergySummary } from '../../types';
 
 @Component({
   selector: 'app-account-details',
@@ -13,7 +13,7 @@ import { EnergyDailyList, EnergySummary } from '../../types';
 export class AccountDetailsComponent implements OnInit {
 
   public summary: EnergySummary;
-  public dailies: EnergyDailyList;
+  public dailies: EnergyDaily[];
 
   constructor(
     private AccountDetailService: AccountDetailService,
@@ -31,7 +31,7 @@ export class AccountDetailsComponent implements OnInit {
       console.log("summary", this.summary);
     });
     this.AccountDetailService.getDailies(accountId).subscribe(dailies => {
-      this.dailies = dailies;
+      this.dailies = dailies.daily_energy_usage;
       console.log("dailies", this.dailies);
     })
   }

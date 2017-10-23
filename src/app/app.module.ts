@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
+import { RoundProgressModule } from 'angular-svg-round-progressbar';
+
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 
@@ -20,7 +22,8 @@ import {
   imports: [
     AppRoutingModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RoundProgressModule
   ],
   providers: [],
   bootstrap: [AppComponent]

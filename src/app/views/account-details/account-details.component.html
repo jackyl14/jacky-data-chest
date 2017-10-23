@@ -8,20 +8,37 @@
   <div class="account-details-content">
     <div class="summary-content" *ngIf="summary">
       <div class="score-content">
-        <div class="summary-score">{{summary.score}}</div>
+        <div class="summary-score">
+          <div class="summary-score-display">{{summary.score}}</div>
+          <round-progress
+              [current]="summary.score"
+              [max]="100"
+              [color]="'#45ccce'"
+              [background]="'#eaeaea'"
+              [radius]="100"
+              [stroke]="20"
+              [semicircle]="false"
+              [rounded]="true"
+              [clockwise]="true"
+              [responsive]="false"
+              [duration]="800"
+              [animation]="'easeInOutQuart'"
+              [animationDelay]="0">
+            </round-progress>
+        </div>
         <div class="summary-details">
           <div class="summary-text">{{summary.score_text}}</div>
           <div class="summary-numbers">
             <div class="summary-numbers-container">
               <div class="summary-numbers-heading">Avg. Daily Energy Usage</div>
               <div class="avg-daily-energy-usg">
-                {{summary.average_daily_energy_usage}}
+                {{summary.average_daily_energy_usage}} kWh
               </div>
             </div>
             <div class="summary-numbers-container">
               <div class="summary-numbers-heading">Avg. Daily Temperature</div>
               <div class="avg-daily-energy-usg">
-                {{summary.average_daily_temp}}
+                {{summary.average_daily_temp}} &#8457;
               </div>
             </div>
           </div>
@@ -30,7 +47,7 @@
     </div>
     <div class="daily-usage-previous-content">
       <div class="daily-usage-heading">
-        <span>Previous Month's Daily Energy Usage: </span>
+        <span>Previous Month's Daily Energy Usage (kWh): </span>
         <span>{{previousMonthYear}}</span>
       </div>
       <div class="daily-usage-content">

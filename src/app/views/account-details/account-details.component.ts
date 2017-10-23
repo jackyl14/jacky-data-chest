@@ -55,7 +55,7 @@ export class AccountDetailsComponent implements OnInit, AfterViewInit {
       values.push(object[key]);
     });
 
-    let day = moment(keys[0], 'MM/DD/YYYY');
+    let day = moment(Object.keys(data[0])[0], 'MM/DD/YYYY');
     this.previousMonthYear = day.format('MMMM YYYY');
 
     let chart = new Chart(this.canvasRef.nativeElement.getContext('2d'), {

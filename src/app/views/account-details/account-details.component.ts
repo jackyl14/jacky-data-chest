@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { ActivatedRoute } from '@angular/router';
 
 import { Chart } from 'chart.js';
+import * as moment from 'moment';
 
 import { AccountDetailService } from '../../services/account-detail.service';
 import { EnergyDaily, EnergySummary } from '../../types';
@@ -19,6 +20,7 @@ export class AccountDetailsComponent implements OnInit, AfterViewInit {
 
   public summary: EnergySummary;
   public dailies: EnergyDaily[];
+  public previousMonthYear: string;
 
   private accountId: number;
 
@@ -57,8 +59,9 @@ export class AccountDetailsComponent implements OnInit, AfterViewInit {
       values.push(object[key]);
     });
 
-    let month = keys[0].split("/")[0];
-
+    let day = moment(keys[0], "MM/DD/YYYY");
+    this.previousMonthYear = day.format("MMMM YYYY");
+    
     let chartInstance = this.canvasRef.nativeElement;
     let ctx = chartInstance.getContext("2d");
     var chart = new Chart(ctx, {

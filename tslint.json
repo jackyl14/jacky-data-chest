@@ -51,6 +51,7 @@
     "no-unused-expression": true,
     "no-unused-variable": true,
     "no-unreachable": true,
+    "no-shadowed-variable": false,
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,

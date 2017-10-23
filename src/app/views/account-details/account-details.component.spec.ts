@@ -2,7 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AccountDetailsComponent } from './account-details.component';
-import { KeysPipe } from '../../pipes/keys.pipe';
 
 describe('AccountDetailsComponent', () => {
   let component: AccountDetailsComponent;
@@ -11,7 +10,7 @@ describe('AccountDetailsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule, RouterTestingModule],
-      declarations: [ AccountDetailsComponent, KeysPipe ]
+      declarations: [ AccountDetailsComponent ]
     })
     .compileComponents();
   }));

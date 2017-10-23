@@ -32,39 +32,33 @@ export class AccountDetailsComponent implements OnInit, AfterViewInit {
     this.dailies = null;
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.accountId = this.ActivatedRoute.snapshot.params.accountId;
-    console.log("accountId", this.ActivatedRoute);
     this.AccountDetailService.getSummary(this.accountId).subscribe(summary => {
       this.summary = summary;
-      console.log("summary", this.summary);
     });
   }
 
-  public ngAfterViewInit() {
-    console.log(this.canvasRef);
+  public ngAfterViewInit(): void {
     this.AccountDetailService.getDailies(this.accountId).subscribe(dailies => {
       this.dailies = dailies.daily_energy_usage;
-      console.log("dailies", this.dailies);
       this.setupBarGraph(this.dailies);
     });
   }
 
-  public setupBarGraph(data) {
-    var keys = [];
-    var values = [];
+  public setupBarGraph(data: EnergyDaily[]): void {
+    let keys = [];
+    let values = [];
     data.forEach(object => {
       const key = Object.keys(object)[0];
-      keys.push(key.split("/")[1]);
+      keys.push(key.split('/')[1]);
       values.push(object[key]);
     });
 
-    let day = moment(keys[0], "MM/DD/YYYY");
-    this.previousMonthYear = day.format("MMMM YYYY");
-    
-    let chartInstance = this.canvasRef.nativeElement;
-    let ctx = chartInstance.getContext("2d");
-    var chart = new Chart(ctx, {
+    let day = moment(keys[0], 'MM/DD/YYYY');
+    this.previousMonthYear = day.format('MMMM YYYY');
+
+    let chart = new Chart(this.canvasRef.nativeElement.getContext('2d'), {
       type: 'bar',
       data: {
         labels: keys,
@@ -83,7 +77,11 @@ export class AccountDetailsComponent implements OnInit, AfterViewInit {
             let ctx = animation.chart.ctx;
             let dataset = animation.chart.controller.getDatasetMeta(0);
 
-            ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+            ctx.font = Chart.helpers.fontString(
+              Chart.defaults.global.defaultFontSize,
+              Chart.defaults.global.defaultFontStyle,
+              Chart.defaults.global.defaultFontFamily
+            );
             ctx.textAlign = 'center';
             ctx.textBaseline = 'bottom';
             // only one

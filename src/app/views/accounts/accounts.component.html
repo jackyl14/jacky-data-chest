@@ -4,8 +4,7 @@
     Please choose an account:
   </div>
   <div class="account-cards" *ngFor="let account of accounts">
-    <div class="account-content" [class.is-hovered]="hoveredAccountId === account.id"
-      (click)="onAccountClick(account.id)">
+    <div class="account-content" (click)="onAccountClick(account.id)">
       <div class="account-content-id">({{account.id}})</div>
       <div class="account-content-address">
         <div class="account-main-text">{{account.address}}</div>

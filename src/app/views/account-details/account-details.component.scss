@@ -1,0 +1,63 @@
+.account-details-container {
+  .account-details-heading {
+    font-size: 4vw;
+    font-weight: 400;
+    font-style: italic;
+  }
+}
+
+.account-details-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  .score-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .summary-score {
+      font-size: 18vw;
+      padding: 10px;
+    }
+
+    .summary-details {
+      padding: 10px;
+
+      .summary-text {
+        font-size: 4vw;
+        padding: 10px 0;
+      }
+    }
+  }
+
+  .summary-numbers {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+
+    .summary-numbers-container {
+      display:flex;
+      flex-direction: column;
+      padding: 5px;
+      border: 1px solid black;
+      margin: 10px 3px;
+      font-size: 3vw;
+
+      .summary-numbers-heading {
+        border-bottom: 1px solid black;
+      }
+    }
+  }
+
+  .daily-usage-previous-content {
+    .daily-usage-heading {
+      font-size: 3vw;
+      font-weight: 500;
+    }
+  }
+}

@@ -110,6 +110,4 @@ export class AccountDetailsComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
-
 }

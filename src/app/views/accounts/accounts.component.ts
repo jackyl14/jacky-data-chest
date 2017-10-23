@@ -13,23 +13,35 @@ import { Account } from '../../types';
 export class AccountsComponent {
 
   public accounts: Account[];
+  public hoveredAccountId: number;
 
   constructor(
     private AccountService: AccountService,
     private Router: Router
   ) {
     this.accounts = null;
+    this.hoveredAccountId = null;
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.AccountService.getAll().subscribe(accounts => {
       this.accounts = accounts;
       console.log(accounts);
     });
   }
 
-  public onAccountClick(accountId: number) {
+  public onAccountClick(accountId: number): void {
     console.log(`onAccountClick: ${accountId}`);
     this.Router.navigate(['/accounts/', accountId]);
+  }
+
+  public onMouseEnter(accountId: number): void {
+    console.log(`onMouseOver: ${accountId}`);
+    this.hoveredAccountId = accountId;
+  }
+
+  public onMouseLeave(): void {
+    console.log("onMouseLeave");
+    this.hoveredAccountId = null;
   }
 }
